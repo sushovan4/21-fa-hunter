@@ -189,23 +189,35 @@
                 <section>
                     <aside class="notes">
                         So, we first get the definition straight.
-                        <br> In geometry, a geodesic mimics the concept of SHORTEST PATH between two points on a graph.
+                        <br> In geometry, a geodesic mimics the concept of
+                        SHORTEST PATH between two points on a graph.
                         <br> Explain the picture.
-                        <br> It is evident from the definition that a graph is a geodesic space, so is any compact, sub-manifold of the Euclidean space. Higher dimensional simplicial complexes are also examples of geodesic spaces.
-                        <br> For the curious audience, the sphere -- if punctured at a point -- no longer remains a geodesic space.
+                        <br> It is evident from the definition that a graph is a
+                        geodesic space, so is any compact, sub-manifold of the
+                        Euclidean space. Higher dimensional simplicial complexes
+                        are also examples of geodesic spaces.
+                        <br> For the curious audience, the sphere -- if
+                        punctured at a point -- no longer remains a geodesic
+                        space.
                     </aside>
                     <img width="35%" src="geodesic.svg">
 
                     <block class="fragment">
-                        For any two points $x,y\in X\subseteq\mathbb{R}^N$, there exists a geodesic or shortest path.
+                        For any two points $x,y\in X\subseteq\mathbb{R}^N$,
+                        there exists a geodesic or shortest path.
                     </block>
                 </section>
 
                 <section>
                     <aside class="notes">
-                        With the definition of the geodesic spaces under our belts, it's time to quickly squirrel away two very important properties -- or rather attributes that become indispensible in the theory ahead.
+                        With the definition of the geodesic spaces under our
+                        belts, it's time to quickly squirrel away two very
+                        important properties -- or rather attributes that become
+                        indispensible in the theory ahead.
                         <br> Define ...
-                        <br> To give you the perspective, the convexity radius of a circle of unit length is a quarter. Similarly, the convexity radius of a graph is ...
+                        <br> To give you the perspective, the convexity radius
+                        of a circle of unit length is a quarter. Similarly, the
+                        convexity radius of a graph is ...
                     </aside>
                     <definition data-header="Distortion">
                         For a geodesic space $X\subseteq\mathbb{R}^N$, the
@@ -224,9 +236,17 @@
                 <h3><u>The Reconstruction Problem</u></h3>
                 <section>
                     <aside class="notes">
-                        So far so good with the shape part of Shape Reconstruction --- now get ready for the fun part --- reconstruction.
-                        <br> Our goal is very simple. Let's ask the data analytics question: Given a chunk of points --- called a sample --- in our case a point-cloud --- What can we say?
-                        <br> Well --- the goal is not very lucid --- is it? What if I say a little bird told me that the points are sampled from a shape that a topologist might care about --- can we guess what the original shape was?
+                        So far so good with the shape part of Shape
+                        Reconstruction --- now get ready for the fun part ---
+                        reconstruction.
+                        <br> Our goal is very simple. Let's ask the data
+                        analytics question: Given a chunk of points --- called a
+                        sample --- in our case a point-cloud --- What can we
+                        say?
+                        <br> Well --- the goal is not very lucid --- is it? What
+                        if I say a little bird told me that the points are
+                        sampled from a shape that a topologist might care about
+                        --- can we guess what the original shape was?
                     </aside>
 
                     <img src="https://raw.githubusercontent.com/sushovan4/defense/master/sample_wedge.svg">
@@ -236,8 +256,12 @@
                 </section>
                 <section>
                     <aside class="notes">
-                        Well --- if you have already guessed the buque of two two circles --- you are a topologist!
-                        <br> The data here inherit intrinsic topological embellishment. In such a use case, statistical inference techniques might fall short, and topological reconstruction tools are deemed a better alternative.
+                        Well --- if you have already guessed the buque of two
+                        two circles --- you are a topologist!
+                        <br> The data here inherit intrinsic topological
+                        embellishment. In such a use case, statistical inference
+                        techniques might fall short, and topological
+                        reconstruction tools are deemed a better alternative.
                     </aside>
                     <img src="https://raw.githubusercontent.com/sushovan4/defense/master/wedge.svg">
                     <p style="font-size: 0.6em">
@@ -249,8 +273,11 @@
 
                 <section>
                     <aside class="notes">
-                        The guessing game might not remain fun if you are given a noisy sample with a Gigabyte of data. A challenging, practical problem is to use the pyriad of GPS locations from travellers and turning them into a nice-looking and accurate map or road-network
-                        of the city.
+                        The guessing game might not remain fun if you are given
+                        a noisy sample with a Gigabyte of data. A challenging,
+                        practical problem is to use the pyriad of GPS locations
+                        from travellers and turning them into a nice-looking and
+                        accurate map or road-network of the city.
                     </aside>
                     <br>
                     <img src="https://raw.githubusercontent.com/sushovan4/defense/master/berlin.jpg">
@@ -273,7 +300,8 @@
                 <h3><u>Problem Statement</u></h3>
                 <section>
                     <aside class="notes">
-                        Here is how we formulate the problem of Euclidean shape reconstruction from a point-cloud.
+                        Here is how we formulate the problem of Euclidean shape
+                        reconstruction from a point-cloud.
                         <br>
                     </aside>
                     <ul class="timeline" style="font-size: 0.9em">
@@ -290,8 +318,10 @@
                     </ul>
                 </section>
                 <section>
-                    <red>Q</red>: Can we infer the toplogy of $X$ from $S$? What does
-                    <green>inference</green> even mean in such a reconstruction context?
+                    <red>Q</red>: Can we infer the toplogy of $X$ from $S$? What
+                    does
+                    <green>inference</green> even mean in such a reconstruction
+                    context?
                     <ul class="timeline" style="font-size: 0.7em">
                         <li class="fragment">Compute
                             <green>$H_*(X)$</green>
@@ -301,7 +331,8 @@
                         </li>
                         <li class="fragment">Construct $\widetilde{X}$
                             <green>homotopy equivalent</green> to $X$</li>
-                        <li class="fragment">$\widetilde{X}$ has a geometrically-close
+                        <li class="fragment">$\widetilde{X}$ has a
+                        geometrically-close
                             <green>embedding</green> in $\mathbb{R}^N$</li>
                     </ul>
                 </section>
@@ -311,8 +342,12 @@
                 <h3><u>Density via Hausdorff Distance</u></h3>
                 <section>
                     <aside class="notes">
-                        Before I show you the reconstruction results, it's time to enforce some density condition on the sample. We can ask for a small Hausdorff distance between the sample and the unknown shape of interest.
-                        <br> The concept of the Hausdorff distance was first introduced by --- I guess --- Hausdorff himself.
+                        Before I show you the reconstruction results, it's time
+                        to enforce some density condition on the sample. We can
+                        ask for a small Hausdorff distance between the sample
+                        and the unknown shape of interest.
+                        <br> The concept of the Hausdorff distance was first
+                        introduced by --- I guess --- Hausdorff himself.
                     </aside>
 
                     <img width="500" src="h.svg" />
@@ -339,10 +374,10 @@
                         <block>
                             If $d_H^Z(A,B)
                             <\varepsilon$, then <br>
-                                each point $a\in A$ has a point $b\in B$ with $d_Z(a,b)
-                                <\varepsilon$, and <br>
-                                    each point $b\in B$ has a point $a\in A$ with $d_Z(a,b)
-                                    <\varepsilon$.</block>
+                                each point $a\in A$ has a point $b\in B$ with
+                                $d_Z(a,b) <\varepsilon$, and <br>
+                                    each point $b\in B$ has a point $a\in A$
+                                    with $d_Z(a,b) <\varepsilon$.</block>
                     </div>
                 </section>
             </section>
@@ -428,240 +463,31 @@
                 <h3><u>Remarks on Reconstruction</u></h3>
                 <ul class="timeline" style="font-size: 0.7em;">
                     <li class="fragment">
-                        The visualization tool is available as a webapp (<a href="">github.com/sushovan4/shape-reconstruction</a>). Need volunteers to extend it.
+                        The visualization tool is available as a webapp (<a
+                        href="">github.com/sushovan4/shape-reconstruction</a>).
+                        Need volunteers to extend it.
                     </li>
                     <li class="fragment">
-                        Our geometric reconstruction works for planar graphs. Spatial graphs?
+                        Our geometric reconstruction works for planar graphs.
+                        Spatial graphs?
                     </li>
 
                     <li class="fragment">
-                        Geometric reconstruction of higher-dimensional objects, like embedded simplicial complexes.
+                        Geometric reconstruction of higher-dimensional objects,
+                        like embedded simplicial complexes.
                     </li>
                 </ul>
             </section>
-
-            <section data-background-iframe="https://www.tickcounter.com/timer">
-            </section>
-            <!-- Shape Comparison -->
-            <section id="part-II">
-                <h3>
-                    <green>2</green>. Comparison</h3>
-            </section>
-
-            <section>
-                <h3><u>Motivation</u></h3>
-
-                <section id="distinguish">
-                    <aside class="notes">
-                        Shape Comparison is an applied field of research. It has evolved a lot in the last decade, however there are yet a lot to be done. The primary goal is to distinguish shape that are visually distinct. We get trained very quickly to compare shapes at a
-                        very early age by the learning algorithms coded in human perception. However, encoding them in machines is a big challenge.
-                    </aside>
-                    <red>1</red>. Distinguish Shapes
-                    <div class="container">
-                        <div class="col">
-                            <img width="250" src="https://raw.githubusercontent.com/sushovan4/gh-presentation/master/triangle.png">
-                            <br>triangle
-                        </div>
-                        <div class="col">
-                            <img width="180" src="https://raw.githubusercontent.com/sushovan4/gh-presentation/master/circle.png">
-                            <br>circle
-                        </div>
-                    </div>
-                </section>
-
-                <section id="classify">
-                    <span class="red">2</span>. Classify Shapes
-                    <div class="container">
-                        <div class="col">
-                            <img width="330" src="https://raw.githubusercontent.com/sushovan4/gh-presentation/master/triangular.png">
-                            <br>triangular
-                        </div>
-
-                        <div class="col">
-                            <img width="300" src="https://raw.githubusercontent.com/sushovan4/gh-presentation/master/circular.png">
-                            <br>circular
-                        </div>
-                    </div>
-                </section>
-
-                <section id="quality">
-                    <aside class="notes">
-                        Shape comparison is also a fundamental aspect of shape reconstruction. It gives us a way to give quality guarantees for reconstruction algorithms --- or to discern if an algorithm performs better than others.
-                        <br> Shown here the outputs from two map construction algorithms on the same GPS data for the city of Berlin, how to tell which one is better?
-                    </aside>
-                    <span class="red">3</span>. Quality Guarantee
-                    <div class="container">
-                        <div class="col">
-                            <img src="https://raw.githubusercontent.com/sushovan4/gh-presentation/master/mahmuda.jpg">
-                        </div>
-
-                        <div class="col">
-                            <img src="https://raw.githubusercontent.com/sushovan4/gh-presentation/master/sophia.jpg">
-                        </div>
-                    </div>
-                    <br> Map Construction from GPS data (Berlin)<br>
-                    <span class="green">https://mapconstruction.org</span>
-                </section>
-            </section>
-
-            <section>
-                <aside class="notes">
-
-                </aside>
-                <h3><u>Shape Comparison</u></h3>
-                <section>
-                    <p class="fragment fade-in">We need an appropriate notion of a <span class="red">distance
-		measure</span> $d_?(X,Y)$ so that </p>
-                    <br>
-                    <ul style="font-size: 0.8em" class="timeline">
-                        <li class="fragment fade-in">
-                            $d_?(X,Y)$ defines a pseudo-metric on the class of metric spaces.
-                        </li>
-                        <li class="fragment fade-in">
-                            $d_?(X,Y)$ large $\iff$ very different shape</li>
-                        <li class="fragment fade-in">
-                            $d_?(X,Y)$ small $\iff$ $X=Y$ up to a class of deformation.</li>
-                    </ul>
-                </section>
-            </section>
+            <aside class="notes">
+                Shape Comparison is an applied field of research. It has
+                evolved a lot in the last decade, however there are yet
+                a lot to be done. The primary goal is to distinguish
+                shape that are visually distinct. We get trained very
+                quickly to compare shapes at a very early age by the
+                learning algorithms coded in human perception. However,
+                encoding them in machines is a big challenge.
+            </aside>
             <!-- Shape ends -->
-
-            <section>
-                <h3><u>Hausdorff under Isometry</u></h3>
-                <section>
-                    <br> $d_H^\mathbb{R^2}($◤, ◢ $)=$ large.
-
-                    <br><br>
-                    <block style="font-size: 0.8em" class="fragment" data-header="">
-                        Let $\mathcal{E}(N)$ denote the class of <span class="red">Euclidean isometries</span> or distance preserving maps $T:\mathbb{R}^N\to\mathbb{R}^N$ i.e. $\|T(a)-T(b)\|=\|a-b\|$.
-                        <br><br>
-                        <ol>
-                            <li class="fragment fade-in">For $N=1$, $T$ is
-                                <span class="green">translation</span> or
-                                <span class="green">reflection</span>.</li>
-                            <br>
-                            <li class="fragment fade-in">
-                                For $N=2$, $T$ is <span class="green">rotation</span>,
-                                <span class="green">translation</span> or
-                                <span class="green">reflection</span>.</li>
-                        </ol>
-                    </block>
-                </section>
-
-                <section>
-                    <definition data-header="Hausdorff Distance under Isometry">
-                        For $X,Y\subseteq\mathbb{R}^N$, we define $$d_{H,iso}(X,Y)=\inf\limits_{T\in\mathcal{E}(N)}d_H^{\mathbb{R}^N}\left(X,T(Y)\right)$$
-                    </definition>
-                    <br>
-                    <div class="fragment fade-in">
-                        <div class="divider">💡</div><br> $d_{H,iso}$ is sensitive to
-                        <span class="red">Shape</span>,
-                        <span class="red">Size</span>, and
-                        <strike class="red">Placement</strike>.
-                        <br> $d_{H,iso}($◤, ◢ $)=0$.
-                    </div>
-                </section>
-            </section>
-
-            <section id="gh">
-                <h3><u>Gromov-Hausdorff Distance</u></h3>
-                <section>
-                    <br> How to compare shapes that do not have a common embedding?
-                    <div class="fragment fade-in">
-                        <img width="400" src="https://raw.githubusercontent.com/sushovan4/gh-presentation/master/gh.png" />
-                        <p style="font-size: 0.5em">Isometric Embedding</p>
-                    </div>
-                </section>
-
-                <section>
-
-                    <definition data-header="Gromov-Hausdorff Distance">
-                        For two abstract metric spaces $(X,d_X)$ and $(Y,d_Y)$, we define $$d_{GH}(X,Y)=\inf\limits_{f,g,Z} d^Z_H(f(X),g(Y)).$$
-                    </definition>
-                </section>
-            </section>
-
-            <section>
-                <h3><u>$d_{GH}$ vs $d_{H,iso}$</u></h3>
-
-                <section>
-                    Let $X,Y\subseteq\mathbb{R}^N$ be compact. Is $d_{GH}(X,Y)=d_{H,iso}(X,Y)$?
-                    <br><br>
-                    <div class="fragment">
-                        <div class="divider">💡</div><br>
-                        <ul class="timeline" style="font-size: 0.8em;">
-                            <li>
-                                <cite>memoli_theoretical_2005</cite>: $d_{GH}(X,Y)\neq d_{H,iso}(X,Y)$ for $N=2,3,\ldots$.
-                            </li>
-                            <li class="fragment">
-                                What happens if $N=1$?
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-
-                <section>
-                    <block data-header="The Real Line Case <cite>majhi2019approximating</cite><br><hr>">
-                        For compact $X,Y\subseteq\mathbb{R}^1$, we have $$d_{GH}(X,Y)\leq d_{H,iso}(X,Y)\leq\left(1+\frac{1}{4}\right)d_{GH}(X,Y),$$ and the upper bound is tight.
-                    </block>
-                </section>
-            </section>
-
-            <section>
-                <h3><u>Computing $d_{GH}$</u></h3>
-
-                <section>
-                    <block>
-                        For $|X|,|Y|\leq k$, computing $d_{GH}(X,Y)$ takes $O(2^k)$ time.
-                    </block>
-                    <br>
-                    <block class="fragment fade-in">
-                        For $X,Y\subset\mathbb{R}^1$ and $|X|,|Y|\leq k$, computing $d_{H,iso}(X,Y)$ takes $O(k\log{k})$ time.
-                    </block>
-                    <br>
-                    <div class="fragment">
-                        <div class="divider">💡</div>
-                        <br>
-                        <span style="font-size: 0.75em;">
-                            $d_{H,iso}$ approximates $d_{GH}$ with an approximate factor of $\left(1+\frac{1}{4}\right)$.
-                        </span>
-                    </div>
-                </section>
-            </section>
-
-            <section>
-                <h3><u>Remarks on Gromov-Hausdorff</u></h3>
-                <ul class="timeline">
-                    <li>How to approximate $d_{GH}$ in higher dimensions?</li>
-                    <li class="fragment">What is the least dimension where it is NP-hard?</span>
-                    </li>
-                    <li class="fragment">Is it NP-hard in $\mathbb{R}^1$?</li>
-                </ul>
-            </section>
-
-            <section>
-                <h3><u>Publications</u></h3>
-                <ul style="font-size: 0.6em">
-                    <li>
-                        <fullcite>majhi2019approximating</fullcite>
-                    </li>
-                    <li>
-                        <fullcite>fasy2018reconstruction</fullcite>
-                    </li>
-                    <li>
-                        <fullcite>fw18</fullcite>
-                    </li>
-                    <li>
-                        <fullcite>fw17</fullcite>
-                    </li>
-                </ul>
-            </section>
-
-            <section id="thanks">
-                The speaker will now accept<br>
-                <span class="red" style="font-size:2em">QUESTIONS</span>.
-                <h1>🤔</h1>
-            </section>
         </div>
     </div>
 
