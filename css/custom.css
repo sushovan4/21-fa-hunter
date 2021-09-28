@@ -1,3 +1,14 @@
+.people div {
+   width: 4em;
+   margin: 5px;
+   display: inline-block;
+}
+.people img {
+    width: 100%;
+}
+.people p {
+    font-size: 0.4em;
+}
 .reflinks a {
     color: red;
     font-family: monospace;
