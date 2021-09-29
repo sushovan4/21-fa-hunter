@@ -28,11 +28,12 @@
                 1em;font-family: 'Brush Script MT', cursive;">
                     A Taste of
                 </div> 
-                <h3>Topological Data Analysis (TDA)</h3>
+                <h4>Topological Data Analysis (TDA)</h4>
                 <h5>(Shape Reconstruction)</h5>
 
-                <span style="font-size:0.5em">Dr. <green style="font-size: 1.7em">Sush</green>ovan Majhi</green>
-                    <br>School of Information, UC Berkeley<br>September 30,
+                <span style="font-size:0.5em">
+                    Dr. <green style="font-size: 1.7em">Sush</green>ovan Majhi</green>
+                    <br>School of Information, UCB<br>September 30,
                     2021</span>
                 <br>
 
@@ -43,14 +44,22 @@
                 <u>smajhi.com/21-fa-hunter</u></span></a>
             
                 <aside class="notes">
-                    Good morning, everyone. Thank you all for fitting the talk
-                    in your busy schedule.
-                    <br> To get a copy of my slides online, please scan the QR
-                    code or go to 'smajhi.com/defense' using your browser. For
-                    the talk, I am using a technology, known as multiplexing --
-                    you get live updates on your device when I move around the
-                    slides.
-                    <br><br>Without further adieu, let's get started.
+                    Good afternoon, everyone. I would like to first thank
+                    Vincent for the invitation and the Applied Math group at
+                    Hunter for hosting the HCAM seminar series. It's a great
+                    initiative.
+                    <br><br>
+                    I go by Sush. I am fresh graduate from Tulane University,
+                    New Orleans; Currently a postdoc at the School of
+                    Information, UC Berkeley.
+                    <br><br>
+                    Here is something new I tried to do for this talk. To get a
+                    copy of my slides online, please scan the QR code or go to
+                    'smajhi.com/21s-fa-hunter' using your browser. The slides
+                    are live -- you get live updates on your device when I move
+                    around the slides.
+                    <br><br>
+                    Alright --- without further adieu, let's get started.
                 </aside>
             </section>
             <!-- Title ends -->
@@ -59,66 +68,79 @@
             <section id="collaborators">
                 <h4><u>Collaborators</u></h4>
                     <aside class="notes">
-                        During the course of my PhD, I am honored to have had
-                        the opportunity to work with some very nice
-                        mathematicians and computer scientists. I would like to
-                        take this grand event to thank them for their earnest
-                        mentoring, helpful ideas, and generous collaboration.
-                        <br> I would like to express my gratitude to my thesis
-                        adviser Carola Wenk; (down) Brittany Fasy, Montana
-                        State, Rafal Komendarczyk, Mathematics, and Jeff Vitter,
-                        U of Mississippi.
+                        Alongside instructing statistics at UCB, I have been
+                        continuing my research broadly in data science. Although
+                        I take a keen interest in questions arising in
+                        topological data analysis, computational topology and
+                        computational geometry, I always keep an eye out for
+                        practical problems where I can test my topological
+                        hammer. 
+                        <br><br>
+                        I have had the opportunity to work with some
+                        very nice mathematicians, computer scientists, and
+                        physicists. In the top-left corner, is my PhD adviser
+                        Carola Wenk. She is the chair of computer science at
+                        Tulane.
                     </aside>
                     <div class="people">
                         <div>
                             <img class="people" src="carola.png"/>
-                            <p>Carola Wenk<br>(PhD adviser)<br>Tulane University<p>
+                            <p>Carola Wenk<br>Tulane University<br>(<green>PhD adviser</green>)</p>
                         </div>
                         <div>
                             <img class="people" src="brit.png"/>
-                            <p>Brittany Fasy<br>Montana State U<p>
+                            <p>Brittany Fasy<br>Montana State U</p>
                         </div>
                         <div>
                             <img class="people" src="jeff.png" />
-                            <p>Jeff Vitter,<br>U of Mississippi<p>
+                            <p>Jeff Vitter,<br>U of Mississippi</p>
                         </div>
                         <br>
                         <div>
                             <img class="people" src="jaman.png" />
-                            <p>Md. Nurujjaman<br>National Institute of Tech, India<p>
+                            <p>Md. Nurujjaman<br>National Institute of Technology<br>India</p>
                         </div>
                         <div>
                             <img class="people" src="erin.png" />
-                            <p>Erin Chambers<br>St. Louis University<p>
+                            <p>Erin Chambers<br>St. Louis University</p>
                         </div>
                         <div>
                             <img class="people" src="liz.png" />
-                            <p>Liz Munch<br>Michigan State U<p>
+                            <p>Liz Munch<br>Michigan State U</p>
                         </div>
                     </div>
             </section>
             <!-- People ends -->
 
             <section id="talk">
-                <h3><u>The Manifesto</u></h3>
+                <aside class="notes">
+                    Here is roughly what I envision to cover today! We open up
+                    with a brief, introductory note about Topological data
+                    analysis (TDA). Along the way, we try to take a stab at
+                    solving the problem. To that end, we introduce Vietoris-Rips
+                    complexes, then come up with a possible solution. Before
+                    drawing the curtain, we talk about opportunities in TDA for
+                    researchers and students alike.
+                </aside>
+                <h4><u>The Manifesto</u></h4>
                 <ul class="timeline" style="font-size:0.6em">
                     <li class="fragment">
                         Introduction to TDA
                     </li>
-
-                        <li class="fragment">
-                            Ideas from Topology
-                        </li>
-
-                        <li class="fragment">
-                            The Reconstruction Problem
-                        </li>
-
-                        <li class="fragment">
-                            Vietoris-Rips Complex
-                        </li>
+                    <li class="fragment">
+                        The Reconstruction Problem
+                    </li>
+                    <li class="fragment">
+                        Vietoris-Rips Complex
+                    </li>
+                    <li class="fragment">
+                        A Possible Solution
+                    </li>
                     <li class="fragment">
                         Opportunities in TDA
+                    </li>
+                    <li class="fragment">
+                        Conclusion
                     </li>
                 </ul>
             </section>
