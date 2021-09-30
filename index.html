@@ -7,7 +7,7 @@
         href="https://smajhi.com/assets/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, 
 				   maximum-scale=1.0, user-scalable=no">
-    <title>Sushovan Majhi: Thesis Defense</title>
+    <title>Sushovan Majhi: Shape Reconstruction</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/sush.css">
@@ -40,7 +40,7 @@
                 <img width="150"
                 src="qr.png"
                 />
-                <br>Live Slides: <a href="https://smajhi.com/21-fa-hunter"><span class="green">
+                <br>Slides: <a href="https://smajhi.com/21-fa-hunter"><span class="green">
                 <u>smajhi.com/21-fa-hunter</u></span></a>
             
                 <aside class="notes">
@@ -48,22 +48,22 @@
                     Vincent for the invitation and the Applied Math group at
                     Hunter for hosting the HCAM seminar series. It's a great
                     initiative.
-                    <br><br>
+                    <br>
                     I go by Sush. I am fresh graduate from Tulane University,
                     New Orleans; Currently a postdoc at the School of
                     Information, UC Berkeley.
-                    <br><br>
-                    Here is something new I tried to do for this talk. To get a
-                    copy of my slides online, please scan the QR code or go to
-                    'smajhi.com/21s-fa-hunter' using your browser. The slides
-                    are live -- you get live updates on your device when I move
-                    around the slides.
-                    <br><br>
+                    <br>
+                    To get a copy of my slides online, please scan the QR code
+                    or go to 'smajhi.com/21-fa-hunter' using your browser.
+                    <br>
                     I have tried to make the ride today as gentle as possible
                     for the audience. To better cusion it, I will try use a lot
                     of pictures and visualization tools -- sparing you of all
-                    the bells and whistles and the mathematical proofs. Alright
-                    --- without further adieu, let's get started.
+                    the bells and whistles and the mathematical proofs.
+                    Although, an interested audience is welcome to call on our
+                    papers online. I will put the pointers at some point. 
+                    <br>
+                    Alright --- without further adieu, let's get started.
                 </aside>
             </section>
             <!-- Title ends -->
@@ -122,11 +122,12 @@
                 <aside class="notes">
                     Here is roughly what I envision to cover today! We open up
                     with a brief, introductory note about Topological data
-                    analysis (TDA). Along the way, we try to take a stab at
-                    solving the problem. To that end, we introduce Vietoris-Rips
-                    complexes, then come up with a possible solution. Before
-                    drawing the curtain, we talk about opportunities in TDA for
-                    researchers and students alike.
+                    analysis (TDA). Following it, I introduce the reconstruction
+                    problem. Along the way, we try to take a stab at solving the
+                    problem. To that end, we introduce Vietoris-Rips complexes,
+                    then come up with a possible solution. Before drawing the
+                    curtain, we talk about opportunities in TDA for researchers
+                    and students alike.
                 </aside>
                 <h4><u>The Manifesto</u></h4>
                 <ul class="timeline" style="font-size:0.6em">
@@ -163,40 +164,41 @@
                         Still in its cradle at the time, TDA could attract only
                         a few hundred researchers in the states and could afford
                         only one or two major conferences and workshops around
-                        the year. 
+                        the year.
+                        <br>
+                        Topology, after all, is a branch of geometry---it is
+                        the systematic study of similarity of abstract shapes,
+                        or topological spaces through various invariants, like
+                        homology groups, cohomology rings, homotopy groups, and
+                        so on. 
+                        <br>
+                        It's difficult to say how or when TDA started to take
+                        shape, but in the early years of the first decade of the
+                        century, computer scientists showed an interest to
+                        algorithmcally compute those topological invariants. The
+                        domain is now called Computational Topology.
                     </aside>    
                 </section>
 
                 <section>
                     <aside class="notes">
-                        Topology is after all is a branch of geometry---it is
-                        the systematic study of similarity of abstract shapes,
-                        or topological spaces through various invariants, like
-                        homology groups, cohomology rings, homotopy groups, and
-                        so on. 
-                        <br><br>
-                        It's difficult to say how or when TDA started to take
-                        shape, but in the early years of the first decade of the
-                        century, computer scientists developed an interest to
-                        algorithmcally compute those topological invariants. The
-                        domain is now called Computational Topology.
-                        <br><br>
                         Around the same time, there was an effort to employ
                         topological ideas to solve practical problems, e.g., ... 
-                        <br><br>
+                        <br>
                         Emboldened by the success of computational and applied
                         topology in providing tanable solutions to practical
                         problems, the TDA community emerged to bestow a
                         topological toolkit on the realm of data science. 
 
-                        <br><br>
+                        <br>
                         It straddles between computational topology and applied
                         topology affording methods inspired by a fair count of
-                        ideas from both topology and geometry. TDA now is
-                        growing apace, it is a field not esoteric to applied
-                        mathematicians, a name not unheard of in the mainstream
-                        data science. Business ventures like Ayasdi even took it
-                        to the silicony valley.
+                        ideas from both topology, geometry, and computer
+                        science. TDA now is growing apace, it is a field no
+                        longer esoteric to applied mathematicians, a name not so
+                        unheard of in the mainstream data science. Business
+                        ventures like Ayasdi even took it to the silicony
+                        valley.
                     </aside>
                     <ul class="timeline" style="font-size: 0.5em;">
                         <li>
@@ -272,12 +274,12 @@
                         branchings at the intersections and the corners.
                         <br> 
                         As our story unfolds, we will see that our
-                        reconstruction results can handle graphs -- as well as
-                        more sophisticated and general class of shapes -- which
-                        we call geodesic spaces.
+                        reconstruction results can handle smooth manifolds also
+                        graphs -- as well as more sophisticated and general
+                        class of shapes -- which we call geodesic spaces.
                     </aside>
 
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7186.92335923804!2d-73.96642200863431!3d40.767983847672575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258eb899f0889%3A0xb5e90aa7d877ee1f!2sHunter%20College!5e0!3m2!1sen!2sus!4v1632962451758!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen=""></iframe>
+                    <iframe width="100%" height="500" style="border:0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7186.92335923804!2d-73.96642200863431!3d40.767983847672575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258eb899f0889%3A0xb5e90aa7d877ee1f!2sHunter%20College!5e0!3m2!1sen!2sus!4v1632962451758!5m2!1sen!2sus"></iframe>
                     <br> Our shapes of interest (the ugly ones)
                 </section>
             </section>
@@ -291,10 +293,12 @@
                         <br> In geometry, a geodesic mimics the concept of
                         SHORTEST PATH between two points on a graph.
                         <br> Explain the picture.
+                        <br> Define geodesic spaces
                         <br> It is evident from the definition that a graph is a
-                        geodesic space, so is any compact, sub-manifold of the
-                        Euclidean space. Higher dimensional simplicial complexes
-                        are also examples of geodesic spaces.
+                        geodesic space, so is the road-network around Hunter.
+                        Also any compact, sub-manifold of the Euclidean space is
+                        a geodesic space. Higher dimensional simplicial
+                        complexes are also examples of geodesic spaces.
                         <br> For the curious audience, the sphere -- if
                         punctured at a point -- no longer remains a geodesic
                         space.
@@ -309,6 +313,8 @@
 
                 <section>
                     <aside class="notes">
+                        Promise, two more definitions, then some fun pictures...
+                        <br>
                         With the definition of the geodesic spaces under our
                         belts, it's time to quickly squirrel away two very
                         important properties -- or rather attributes that become
@@ -360,11 +366,10 @@
                     <aside class="notes">
                         Well --- if you have already guessed the buque of two
                         circles --- you are a topologist!
-                        <br> The data here inherit an intrinsic
-                        topological/geometric sturcture/embellishment. In such a
-                        use case, statistical inference techniques might fall
-                        short, and topological reconstruction tools are deemed a
-                        better alternative.
+                        <br> The data here inherit an intrinsic topological
+                        sturcture. In such a use case, statistical inference
+                        techniques might fall short, and topological
+                        reconstruction tools are deemed a better alternative.
                     </aside>
                     <img src="https://raw.githubusercontent.com/sushovan4/defense/master/wedge.svg">
                     <p style="font-size: 0.6em">
@@ -463,24 +468,17 @@
                     </div>
                 </section>
                 <section>
-                    <definition data-header="Hausdorff Distance">
-                        Let $A,B\subseteq(Z,d_Z)$. Their
-                        <green>Hausdorff distance
-                        </green> is defined by <br> $d_H^Z(A,B)=\max\{$
-                        <green>$\sup_{a\in A}\inf_{b\in B}d_Z(a,b)$</green>,
-                        <red>$\sup_{b\in B}\inf_{a\in A}d_Z(a,b)$</red>$\}.$
-                    </definition>
-                    <br>
+                   
                     <div class="fragment">
                         <div class="divider">💡</div><br>
 
                         <block>
-                            If $d_H^Z(A,B)
+                            If $d_H(A,B)
                             <\varepsilon$, then <br>
-                                each point $a\in A$ has a point $b\in B$ with
-                                $d_Z(a,b) <\varepsilon$, and <br>
-                                    each point $b\in B$ has a point $a\in A$
-                                    with $d_Z(a,b) <\varepsilon$.</block>
+                            <green>></green> each point $a\in A$ has a point $b\in B$ with
+                                $||a-b|| <\varepsilon$, and <br>
+                                <green>></green> each point $b\in B$ has a point $a\in A$
+                                    with $||a-b|| <\varepsilon$.</block>
                     </div>
                 </section>
             </section>
@@ -488,18 +486,26 @@
             <section id="rips">
                 <section>
                     <aside class="notes">
-                        We now present a popular reconstruction technique using
-                        Vietoris-Rips complexes.
-                        <br> A finite point-cloud...
+                        Now as we have laid out the density conditions for a
+                        good sample in terms of Hausdorff distance, let's try to
+                        find a reconstruction. Our sample S is discrete set of
+                        points with the mutual distances defined on them. S does
+                        not have a rich topology! Currently, it can only have
+                        the discrete topology. In order to create a space \tilde
+                        X that we can call a reconstruction, we use the
+                        Vietoris-Rips complexes. Vietoris-Rips complexes were
+                        somewhat well-studied. However, the TDA community has
+                        extended its popularity beyond the limits of classical
+                        topology. 
                     </aside>
-                    <h3><u>Vietoris-Rips Complex</u></h3>
-                    <img width="750" src="rips.svg" />
+                    <h4><u>Vietoris-Rips Complex</u></h4>
+                    <img width="700" src="rips.svg" / class="fragment">
 
                     <definition class="fragment" data-header="Vietoris-Rips Complex">
                         For a metric space $(M,d_M)$ and scale $\varepsilon>0$,
                         each subset $A$ of size $k$ with $diam_d(A)\leq\epsilon$
                         is a $(k-1)$-simplex of the Vietoris-Rips complex
-                        $R_\varepsilon(M)$.
+                        $VR_\varepsilon(M)$.
                     </definition>
                 </section>
                 <section data-background-iframe="https://smajhi.com/shape-reconstruction"></section>
@@ -507,13 +513,12 @@
                     <block data-header="Adams H. et al. <cite>Adams_2019</cite><br><hr>">
                         Let $X$ be a smooth sub-manifold. If $\epsilon>0$ is
                         small and $d_H(X,S)$ is also small, then the
-                        Vietoris-Rips complex $R_\varepsilon(S)$ is homotopy
+                        Vietoris-Rips complex $VR_\varepsilon(S)$ is homotopy
                         equivalent to $X$.
                     </block>
                 </section>
             </section>
 
-            <!-- Build context around ...-->
             <section id="graph-recon">
                 <h4><u>Geodesic Spaces</u></h4>
                 <img width="400" src="graph-rips.png">
@@ -554,12 +559,12 @@
                     <block data-header="Vietoris-Rips Reconstruction <cite>fasy2018reconstruction</cite><br><hr>">
                         If $d_H(X,S) <\epsilon<\frac{\rho}{2\delta(3\delta+1)}$,
                         the image $$Im(j_*)\simeq\pi_*(X),$$ where
-                        $j:\mathcal{R}_{\epsilon}(S)\to\mathcal{R}_{\frac{1}{2}(3\delta+1)\epsilon}(S)$.
+                        $j:\mathcal{VR}_{\epsilon}(S)\to\mathcal{R}_{\frac{1}{2}(3\delta+1)\epsilon}(S)$.
                         </block>
                 </section>
             </section>
             <section>
-                <h3><u>Geometric Reconstruction</u></h3>
+                <h4><u>Geometric Reconstruction</u></h4>
                 <section>
                     <block data-header="Graph Reconstruction
                     <cite>fasy2018reconstruction</cite><br><hr>">
@@ -569,43 +574,73 @@
                         small. </block>
                 </section>
             </section>
+            <section data-background-iframe="https://smajhi.com/shape-reconstruction"></section>
 
             <section>
                 <h4><u>Remarks on Reconstruction</u></h4>
-                <ul class="timeline" style="font-size: 0.7em;">
+                <ul class="timeline" style="font-size: 0.6em;">
+                    <li class="fragment">
+                        Our geometric reconstruction works for planar graphs.
+                        Spatial graphs? My very recent work!
+                    </li>
+                    <li class="fragment">
+                        Geometric reconstruction of higher-dimensional objects,
+                        like embedded simplicial complexes.
+                    </li>
+                    <li class="fragment">
+                        Incorporate statistical treatments.
+                    </li>
                     <li class="fragment">
                         The visualization tool is available as a webapp (<a
                         href="">github.com/sushovan4/shape-reconstruction</a>).
                         Need volunteers to extend it.
                     </li>
+                </ul>
+            </section>
+         
+            <section>
+                <h4><u>Opportunities</u></h4>
+                <ul class="timeline" style="font-size: 0.6em;">
                     <li class="fragment">
-                        Our geometric reconstruction works for planar graphs.
-                        Spatial graphs?
+                        Companies like Ayasdi are hiring topological data
+                        scientists and interns
                     </li>
-
                     <li class="fragment">
-                        Geometric reconstruction of higher-dimensional objects,
-                        like embedded simplicial complexes.
+                        Open-source projects in TDA: Gudhi (C++), Scikit-tda
+                        (Python), tdajs (Typescript/JS)
+                    </li>
+                    <li class="fragment">
+                        Graduate schools like OSU, Michigan S, Duke, Montana
+                        State, Tulane have TDA grants/projects
+                    </li>
+                    <li class="fragment">
+                       I also have some cool problems and projects (theory and
+                       application) <br>
+                       <green>smajhi@berkeley.edu</green> 
                     </li>
                 </ul>
             </section>
-            <aside class="notes">
-                Shape Comparison is an applied field of research. It has
-                evolved a lot in the last decade, however there are yet
-                a lot to be done. The primary goal is to distinguish
-                shape that are visually distinct. We get trained very
-                quickly to compare shapes at a very early age by the
-                learning algorithms coded in human perception. However,
-                encoding them in machines is a big challenge.
-            </aside>
-            <!-- Shape ends -->
-            <section>
-                <h4><u>Opportunities</u></h4>
-            </section>
-            <section>
-                <h4><u>Questions</u></h4>
-            </section>
             
+            <section>
+                <h4><u>References</u></h4>
+                <ol style="font-size: 0.6em">
+                    <li>
+                        <fullcite>Adams_2019</fullcite>
+                    </li>
+                    <li>
+                        <fullcite>fasy2018reconstruction</fullcite>
+                    </li>
+                    <li>
+                        <fullcite>fw17</fullcite>
+                    </li>
+                </ol>
+            </section>
+
+            <section id="thanks">
+                The speaker will now accept<br>
+                <span class="red" style="font-size:2em">QUESTIONS</span>.
+                <h1>🤔</h1>
+            </section>
         </div>
     </div>
 
@@ -633,14 +668,14 @@
             },
             plugins: [RevealHighlight, RevealNotes, RevealMath],
             dependencies: [{
-                src: '//socket.io/socket.io.js',
-                async: true
+                //src: '//socket.io/socket.io.js',
+                //async: true
             }, {
                 src: 'https://raw.githubusercontent.com/reveal/multiplex/master/client.js',
                 async: true
             }, {
-                src: 'https://unpkg.com/reveal-notes-server/client.js',
-                async: true
+                //src: 'https://unpkg.com/reveal-notes-server/client.js',
+                //async: true
             }],
             multiplex: {
                 secret: null,

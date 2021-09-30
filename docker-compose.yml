@@ -9,7 +9,7 @@ services:
       - 35729:35729
       - 1948:1948
       - 1947:1947
-    command: node node_modules/reveal-multiplex
+    command: npm start
     volumes:
       - ./:/usr/src/app
       - /usr/src/app/node_modules
