@@ -59,7 +59,11 @@
                     are live -- you get live updates on your device when I move
                     around the slides.
                     <br><br>
-                    Alright --- without further adieu, let's get started.
+                    I have tried to make the ride today as gentle as possible
+                    for the audience. To better cusion it, I will try use a lot
+                    of pictures and visualization tools -- sparing you of all
+                    the bells and whistles and the mathematical proofs. Alright
+                    --- without further adieu, let's get started.
                 </aside>
             </section>
             <!-- Title ends -->
@@ -85,7 +89,8 @@
                     <div class="people">
                         <div>
                             <img class="people" src="carola.png"/>
-                            <p>Carola Wenk<br>Tulane University<br>(<green>PhD adviser</green>)</p>
+                            <p>Carola Wenk<br>Tulane University<br>(<green>PhD
+                            adviser</green>)</p>
                         </div>
                         <div>
                             <img class="people" src="brit.png"/>
@@ -98,7 +103,8 @@
                         <br>
                         <div>
                             <img class="people" src="jaman.png" />
-                            <p>Md. Nurujjaman<br>National Institute of Technology<br>India</p>
+                            <p>Md. Nurujjaman<br>National Institute of
+                            Technology<br>India</p>
                         </div>
                         <div>
                             <img class="people" src="erin.png" />
@@ -186,51 +192,70 @@
                         <br><br>
                         It straddles between computational topology and applied
                         topology affording methods inspired by a fair count of
-                        ideas from both topology and geometry. TDA now is a
-                        field not esoteric to applied mathematicians, a name not
-                        unheard of in the mainstream data science. Business
-                        ventures like Ayasdi even took it to the silicony valley.
+                        ideas from both topology and geometry. TDA now is
+                        growing apace, it is a field not esoteric to applied
+                        mathematicians, a name not unheard of in the mainstream
+                        data science. Business ventures like Ayasdi even took it
+                        to the silicony valley.
                     </aside>
                     <ul class="timeline" style="font-size: 0.5em;">
                         <li>
                             <green>Computational Topology</green> <br>
-                            > algorithmcally compute various topological
-                            invariants, e.g., homology groups, Betti numbers,
-                            Euler characteristic, etc 
+                            <green>></green> algorithmcally compute various
+                            topological invariants, e.g., homology groups, Betti
+                            numbers, Euler characteristic, etc 
                         </li>
 
                         <li class="fragment">
                             <green>Applied Topology</green> <br>
-                            > apply topological ideas in sensor coverage
-                            problem, motion planning in robotics, configuration
+                            <green>></green> apply topological ideas in sensor
+                            network, motion planning in robotics, configuration
                             spaces etc
                         </li>
 
                         <li class="fragment">
                             <green>TDA</green> <br>
-                            > learning from big data, (stratified) manifold
-                            learning, 
+                            <green>></green> learning from big data,
+                            (stratified) manifold learning, shape reconstruction
+                            and comparison, and so much more...
                         </li>
                     </ul>
                 </section>
             </section>
 
+            <section>
+                <aside class="notes">
+                    It's very commmon to talk about things that we have done
+                    recently. The lion's share of my PhD work entails the famous
+                    problem in TDA: reconstruction of geometric shapes from a
+                    noisy sample around it. In particular, today we talk about
+                    reconstruction of a special class of shapes: the geodesic
+                    spaces. We will especially talk about the reconstruction
+                    techniques that we put forward. 
+                    <br><br>
+                    Before we formally define the reconstruction problem, let's
+                    talk about shapes.
+                </aside>
+                <h3 style="transform: rotate(-20deg);">Shape Reconstruction</h3>
+            </section>
+
             <!-- Shape -->
             <section id="shape">
-                <h3><u>Shapes</u></h3>
+                <h4><u>Shapes</u></h4>
                 <section id="manifold">
                     <aside class="notes">
                         Pretty much whatever we see can be called a shape. In
-                        topology, shapes are distinguished by the topological
-                        features they manifest. The best class of shapes one
-                        always hopes to deal with is smooth manifolds smoothly
-                        embedded in Euclidean space.
-                        <br> For example, the smooth closed curve embedded in
-                        the plane on the left and the hollow torus embedded in
-                        the space on the right.
+                        topology though, shapes are distinguished by the
+                        topological features they manifest. The best class of
+                        shapes one always hopes to deal with is smooth manifolds
+                        smoothly embedded in Euclidean space.
+                        <br><br>
+                        For example, the smooth closed curve embedded in the
+                        plane on the left and the hollow torus embedded in the
+                        space on the right.
                     </aside>
                     <img width="200" style="border:none;background:none" 
-                        src="https://raw.githubusercontent.com/sushovan4/defense/master/circle.png" />
+                        src="https://raw.githubusercontent.com/sushovan4/defense/master/circle.png" /> 
                     <img width="300" style="border:none;background:none" 
                         src="https://raw.githubusercontent.com/sushovan4/defense/master/torus.png" />
                     <br> Smooth Manifolds (the good ones)
@@ -239,26 +264,27 @@
                     <aside class="notes">
                         However, more often than not, practical applications
                         deal with shapes that are far from being a smooth
-                        manifold. The map of the city of New Orleans can be
+                        manifold. The map of the neighborhood of Hunter can be
                         modelled as a graph, where the intersections are thought
                         of as the vertices, whereas the roads the edges.
-                        <br> Clearly, a graph is NOT a manifold -- because of
-                        the branchings at the intersections and the corners.
-                        <br> As our story unfolds, we will see that our
+                        <br> 
+                        Clearly, a graph is NOT a manifold -- because of the
+                        branchings at the intersections and the corners.
+                        <br> 
+                        As our story unfolds, we will see that our
                         reconstruction results can handle graphs -- as well as
                         more sophisticated and general class of shapes -- which
                         we call geodesic spaces.
                     </aside>
 
-                    <iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=tulane%20university&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-	    			</iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7186.92335923804!2d-73.96642200863431!3d40.767983847672575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258eb899f0889%3A0xb5e90aa7d877ee1f!2sHunter%20College!5e0!3m2!1sen!2sus!4v1632962451758!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen=""></iframe>
                     <br> Our shapes of interest (the ugly ones)
                 </section>
             </section>
             <!-- Shape ends -->
 
             <section>
-                <h3><u>Geodesic Spaces</u></h3>
+                <h4><u>Geodesic Spaces</u></h4>
                 <section>
                     <aside class="notes">
                         So, we first get the definition straight.
@@ -273,8 +299,8 @@
                         punctured at a point -- no longer remains a geodesic
                         space.
                     </aside>
+                    
                     <img width="35%" src="geodesic.svg">
-
                     <block class="fragment">
                         For any two points $x,y\in X\subseteq\mathbb{R}^N$,
                         there exists a geodesic or shortest path.
@@ -286,7 +312,7 @@
                         With the definition of the geodesic spaces under our
                         belts, it's time to quickly squirrel away two very
                         important properties -- or rather attributes that become
-                        indispensible in the theory ahead.
+                        indispensible in the journey ahead.
                         <br> Define ...
                         <br> To give you the perspective, the convexity radius
                         of a circle of unit length is a quarter. Similarly, the
@@ -295,18 +321,21 @@
                     <definition data-header="Distortion">
                         For a geodesic space $X\subseteq\mathbb{R}^N$, the
                         <green>distortion</green>
-                        $$\delta=\sup_{x\neq y}\frac{d_L(x,y)}{\|x-y\|}.$$
+                        $$\delta=\sup_{x\neq y}\frac{\color{red}{d_L(x,y)}}{\color{blue}{\|x-y\|}}.$$
                     </definition>
                     <br>
                     <definition data-header="Convexity Radius" class="fragment">
                         For a geodesic space $X\subseteq\mathbb{R}^N$, the
-                        <green>convexity radius</green> $\rho$ is the half of the (ant) distance between a pair of furthest points $x,y\in X$ that have a unique geodesic.
+                        <green>convexity radius</green> $\rho$ is the half of
+                        the (ant) distance between a pair of furthest points
+                        $x,y\in X$ that have a unique geodesic. For a unit
+                        length circle, its convexity radius is one quarter.
                     </definition>
                 </section>
             </section>
 
             <section id="reconstruction">
-                <h3><u>The Reconstruction Problem</u></h3>
+                <h4><u>The Reconstruction Problem</u></h4>
                 <section>
                     <aside class="notes">
                         So far so good with the shape part of Shape
@@ -317,9 +346,9 @@
                         sample --- in our case a point-cloud --- What can we
                         say?
                         <br> Well --- the goal is not very lucid --- is it? What
-                        if I say a little bird told me that the points are
-                        sampled from a shape that a topologist might care about
-                        --- can we guess what the original shape was?
+                        if I whisper to you that the points are sampled from a
+                        shape that a topologist might care about --- can we
+                        guess what the original shape was?
                     </aside>
 
                     <img src="https://raw.githubusercontent.com/sushovan4/defense/master/sample_wedge.svg">
@@ -330,11 +359,12 @@
                 <section>
                     <aside class="notes">
                         Well --- if you have already guessed the buque of two
-                        two circles --- you are a topologist!
-                        <br> The data here inherit intrinsic topological
-                        embellishment. In such a use case, statistical inference
-                        techniques might fall short, and topological
-                        reconstruction tools are deemed a better alternative.
+                        circles --- you are a topologist!
+                        <br> The data here inherit an intrinsic
+                        topological/geometric sturcture/embellishment. In such a
+                        use case, statistical inference techniques might fall
+                        short, and topological reconstruction tools are deemed a
+                        better alternative.
                     </aside>
                     <img src="https://raw.githubusercontent.com/sushovan4/defense/master/wedge.svg">
                     <p style="font-size: 0.6em">
@@ -348,9 +378,9 @@
                     <aside class="notes">
                         The guessing game might not remain fun if you are given
                         a noisy sample with a Gigabyte of data. A challenging,
-                        practical problem is to use the pyriad of GPS locations
+                        practical problem is to use the myriad of GPS locations
                         from travellers and turning them into a nice-looking and
-                        accurate map or road-network of the city.
+                        reasonably accurate map or road-network of the city.
                     </aside>
                     <br>
                     <img src="https://raw.githubusercontent.com/sushovan4/defense/master/berlin.jpg">
@@ -370,23 +400,22 @@
             </section>
 
             <section id="problem">
-                <h3><u>Problem Statement</u></h3>
+                <h4><u>Problem Statement</u></h4>
                 <section>
                     <aside class="notes">
                         Here is how we formulate the problem of Euclidean shape
                         reconstruction from a point-cloud.
-                        <br>
                     </aside>
-                    <ul class="timeline" style="font-size: 0.9em">
+                    <ul class="timeline" style="font-size: 0.7em">
                         <li class="fragment">Let $X$ be a
-                            <red>hidden</red> subset of $\mathbb{R}^N$</li>
+                            <red>hidden</red> geodesic subset of $\mathbb{R}^N$</li>
                         <li class="fragment">
                             We have a sample or a
                             <span class="green">point-cloud</span> $(S,\|\cdot\|)$
                         </li>
                         <li class="fragment">
-                            $S$ is
-                            <span class="green">dense</span> around $X$.
+                            $S$ is reasonably <span class="green">dense</span>
+                            around $X$.
                         </li>
                     </ul>
                 </section>
@@ -412,20 +441,21 @@
             </section>
 
             <section id="hausdorff">
-                <h3><u>Density via Hausdorff Distance</u></h3>
+                <h4><u>Density via Hausdorff Distance</u></h4>
                 <section>
                     <aside class="notes">
-                        Before I show you the reconstruction results, it's time
-                        to enforce some density condition on the sample. We can
+                        Before I show you the reconstruction works, it's time
+                        to enforce some density conditions on the sample. We can
                         ask for a small Hausdorff distance between the sample
-                        and the unknown shape of interest.
+                        and the hidden shape of interest.
                         <br> The concept of the Hausdorff distance was first
-                        introduced by --- I guess --- Hausdorff himself.
+                        introduced by --- not difficult guess --- the German
+                        mathematician Hausdorff himself.
                     </aside>
 
-                    <img width="500" src="h.svg" />
+                    <img width="350" src="h.svg" />
                     <div class="fragment">
-                        Hausdorff distance $d_H^\mathbb{R^2}(A,B)$ is
+                        Hausdorff distance $d_H(A,B)$ is
                         <br> $\max\{$
                         <green>$a$</green>,
                         <red>$b$ </red>$\}=$
@@ -458,20 +488,27 @@
             <section id="rips">
                 <section>
                     <aside class="notes">
-                        We now present a popular reconstruction technique using Vietoris-Rips complexes.
+                        We now present a popular reconstruction technique using
+                        Vietoris-Rips complexes.
                         <br> A finite point-cloud...
                     </aside>
                     <h3><u>Vietoris-Rips Complex</u></h3>
                     <img width="750" src="rips.svg" />
 
                     <definition class="fragment" data-header="Vietoris-Rips Complex">
-                        For a metric space $(M,d_M)$ and scale $\varepsilon>0$, each subset $A$ of size $k$ with $diam_d(A)\leq\epsilon$ is a $(k-1)$-simplex of the Vietoris-Rips complex $R_\varepsilon(M)$.
+                        For a metric space $(M,d_M)$ and scale $\varepsilon>0$,
+                        each subset $A$ of size $k$ with $diam_d(A)\leq\epsilon$
+                        is a $(k-1)$-simplex of the Vietoris-Rips complex
+                        $R_\varepsilon(M)$.
                     </definition>
                 </section>
                 <section data-background-iframe="https://smajhi.com/shape-reconstruction"></section>
                 <section>
                     <block data-header="Adams H. et al. <cite>Adams_2019</cite><br><hr>">
-                        Let $X$ be a smooth sub-manifold. If $\epsilon>0$ is small and $d_H(X,S)$ is also small, then the Vietoris-Rips complex $R_\varepsilon(S)$ is homotopy equivalent to $X$.
+                        Let $X$ be a smooth sub-manifold. If $\epsilon>0$ is
+                        small and $d_H(X,S)$ is also small, then the
+                        Vietoris-Rips complex $R_\varepsilon(S)$ is homotopy
+                        equivalent to $X$.
                     </block>
                 </section>
             </section>
@@ -504,13 +541,21 @@
                 <h3><u>Topological Reconstruction</u></h3>
                 <section>
                     <aside class="notes">
-                        Instead of looking at Rips complex only at one scale epsilon, we take two scales. We first collect the cycles at the lower scale. There might be some anomalous cycles --- but we kill them at the larger scale. At the end, the surviving cycles generate
-                        the desired homology groups of the unknown geodesic space X.
-                        <br> Such an idea of accounting for two scales is known as Persistent Homology. However, the novelty here is to recognize the two sampling parameters.
+                        Instead of looking at Rips complex only at one scale
+                        epsilon, we take two scales. We first collect the cycles
+                        at the lower scale. There might be some anomalous cycles
+                        --- but we kill them at the larger scale. At the end,
+                        the surviving cycles generate the desired homology
+                        groups of the unknown geodesic space X.
+                        <br> Such an idea of accounting for two scales is known
+                        as Persistent Homology. However, the novelty here is to
+                        recognize the two sampling parameters.
                     </aside>
                     <block data-header="Vietoris-Rips Reconstruction <cite>fasy2018reconstruction</cite><br><hr>">
-                        If $d_H(X,S)
-                        <\epsilon<\frac{\rho}{2\delta(3\delta+1)}$, the image $$Im(j_*)\simeq\pi_*(X),$$ where $j:\mathcal{R}_{\epsilon}(S)\to\mathcal{R}_{\frac{1}{2}(3\delta+1)\epsilon}(S)$. </block>
+                        If $d_H(X,S) <\epsilon<\frac{\rho}{2\delta(3\delta+1)}$,
+                        the image $$Im(j_*)\simeq\pi_*(X),$$ where
+                        $j:\mathcal{R}_{\epsilon}(S)\to\mathcal{R}_{\frac{1}{2}(3\delta+1)\epsilon}(S)$.
+                        </block>
                 </section>
             </section>
             <section>
@@ -518,8 +563,10 @@
                 <section>
                     <block data-header="Graph Reconstruction
                     <cite>fasy2018reconstruction</cite><br><hr>">
-                        If $d_H(G,S)
-                        <\epsilon<\frac{\rho}{2\delta(3\delta+1)}$, we can output $\widetilde{X}$ such that $$\widetilde{X}\simeq G,$$ and $d_H(G,\widetilde{X})$ is small. </block>
+                        If $d_H(G,S) <\epsilon<\frac{\rho}{2\delta(3\delta+1)}$,
+                        we can output $\widetilde{X}$ such that
+                        $$\widetilde{X}\simeq G,$$ and $d_H(G,\widetilde{X})$ is
+                        small. </block>
                 </section>
             </section>
 
