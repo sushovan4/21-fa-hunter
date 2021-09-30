@@ -7,7 +7,9 @@ services:
     ports:
       - 8000:8000  
       - 35729:35729
-    command: npm start
+      - 1948:1948
+      - 1947:1947
+    command: node node_modules/reveal-multiplex
     volumes:
       - ./:/usr/src/app
       - /usr/src/app/node_modules
